@@ -1,8 +1,9 @@
 .board {
     display: flex;
     flex-wrap: wrap;
-    width: calc(17%);
-    height: calc(23%);
+    --widthA: calc(20vw);
+    width: var(--widthA);
+    height: var(--widthA);
     border: 2px solid black;
     margin: 40px;
     position: fixed;
@@ -10,19 +11,19 @@
 }
 
 .first {
-    left: calc(8%);
+    left: calc(5%);
 }
 
 .second {
-    left: calc(30%);
+    left: calc(27%);
 }
 
 .third {
-    left: calc(52%);
+    left: calc(49%);
 }
 
 .fourth {
-    left: calc(74%)
+    left: calc(71%)
 }
 /* #container {
     position: fixed;
@@ -36,7 +37,7 @@
     display: inline;
     border: 1px solid black;
     text-align: center;
-    font-size: calc(150%);
+    font-size: calc(3vw);
     cursor: pointer;
 }
 
