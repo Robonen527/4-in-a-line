@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="he">
+    <head>
+        <style>
+            body {
+                margin-right: 50px;
+            }
+            .tothegame {
+                position: fixed;
+                top: calc(50%);
+                left: calc(20%);
+            }
+            .board {
+                display: flex;
+                flex-wrap: wrap;
+                width: 104px;
+                height: 104px;
+                border: 2px solid black;
+                /* margin: 40px; */
+                position: fixed;
+                top: auto;
+            }
+            .square {
+                width: 24px;
+                height: 24px;
+                display: inline;
+                border: 1px solid black;
+                text-align: center;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .first {
+                right: calc(10%);
+            }
+            .second {
+                right: calc(20%);
+            }
+            .third {
+                right: calc(30%);
+            }
+            .fourth {
+                right: calc(40%);
+            }
+            .ix {
+                color: red;
+            }
+            .igul {
+                color: green;
+            }
+            .container {
+                max-height: 106px;
+            }
+            
+        </style>
+        
+    </head>
+    <body dir="rtl">
+        <button class="tothegame">למשחק</button>
+        <h1>הוראות:</h1>
+        <div>
+            <h3>
+                כל שחקן בתורו לוחץ על משבצת, הראשון X והשני O והמטרה ליצור 4 בשורה/אלכסון/טור, רק שיש אפשרויות
+                נוספות לנצח.
+                <br>
+                ניתן לדמיין את ארבעת הלוחות אחד מעל השני וכאן גם ניתן לנצח במימד הנוסף שנוצר (יש שלושה מימדים):
+                <ul>
+                    <li>
+                        <span class="igul">טור עולה של משבצות אחת מעל השניה:</span>
+                        <div class="position-relative container" >
+                            <div class="board first">
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </div>
+                            <div class="board second">
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </div>
+                            <div class="board third">
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </div>
+                            <div class="board fourth">
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </div>
+                        </div><br><br><br><br><br><br>
+                    </li>
+                    <li>
+                        <span class="igul">אפשר שורה הנעה בין לוחות לפי הסדר (וכן בטור):</span>
+                        <div class="position-relative container" id="container">
+                            <span class="board first">
+                                <sapn class="square ix">X</sapn>
+                                <span class="square"></span>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board second">
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board third">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board fourth">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                        </div><br><br><br><br><br><br>
+                    </li>
+                    <li>
+                        <span class="ix">חשוב! שזה יהיה לפי הסדר, מתחיל בימין ונגמר בשמאל, ולא ככה:</span>
+                        <div class="position-relative container" id="container">
+                            <span class="board first">
+                                <span class="square"></span>
+                                <sapn class="square ix">X</sapn>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board second">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board third">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board fourth">
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                        </div><br><br><br><br><br><br>
+                    </li>
+                    <li>
+                        <span class="igul">וכן אפשר באלכסון בין השורות (לפי הסדר):</span>
+                        <div class="position-relative container" id="container">
+                            <span class="board first">
+                                <sapn class="square ix">X</sapn>
+                                <span class="square"></span>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board second">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board third">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </span>
+                            <span class="board fourth">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square ix">X</div>
+                            </span>
+                        </div><br><br><br><br><br><br>
+                    </li>
+                </ul>
+            </h3>
+        </div>
+    </body>
+</html>

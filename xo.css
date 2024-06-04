@@ -1,0 +1,71 @@
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 204px;
+    height: 204px;
+    border: 2px solid black;
+    margin: 40px;
+    position: fixed;
+    top: 20%;
+}
+
+.first {
+    left: calc(5%);
+}
+
+.second {
+    left: calc(28%);
+}
+
+.third {
+    right: calc(28%);
+}
+
+.fourth {
+    right: calc(5%)
+}
+/* #container {
+    position: fixed;
+    left: calc(50% - 152px);
+    top: 50px;
+} */
+
+.square {
+    width: 50px;
+    height: 50px;
+    display: inline;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.ix {
+    color: red;
+}
+
+.igul {
+    color: blue;
+}
+
+#turn {
+    position:fixed;
+    left: calc(50% - 35px);
+    top: 10px;
+    font-size: 30px;
+}
+
+.winmessage {
+    position: fixed;
+    left: calc(40%);
+    bottom: calc(30%);
+    font-size: 50px;
+    font-style: italic;
+    color: goldenrod;
+}
+
+.winButton {
+    position: fixed;
+    left: calc(50% - 50px);
+    bottom: calc(20%);
+}
