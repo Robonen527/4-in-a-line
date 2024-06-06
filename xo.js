@@ -110,11 +110,20 @@ function checkDraw(game) {
     }
 }
 
+function markLine(line) {
+    for (var i of line) {
+        const sq = document.getElementById(calcId(i-1));
+        sq.classList.add("winnersq");
+    }
+    return
+}
+
 function checkWin(game) {
     for (const line of winningOpt) {
         const mark = squares[line[0] - 1].textContent; // Get the mark from the first element
         if (mark && line.every(game => squares[game - 1].textContent === mark)) {
-          return true;
+            markLine(line);
+            return true;
         }
     }
 

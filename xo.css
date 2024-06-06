@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.winnersq {
+    background-color: yellow;
+}
+
 .ix {
     color: red;
 }
@@ -59,7 +63,7 @@
 .winmessage {
     position: fixed;
     left: calc(40%);
-    bottom: calc(30%);
+    bottom: calc(25%);
     font-size: 50px;
     font-style: italic;
     color: goldenrod;
